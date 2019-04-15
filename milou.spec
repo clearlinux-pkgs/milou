@@ -6,7 +6,7 @@
 #
 Name     : milou
 Version  : 5.15.4
-Release  : 16
+Release  : 17
 URL      : https://download.kde.org/stable/plasma/5.15.4/milou-5.15.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.4/milou-5.15.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.4/milou-5.15.4.tar.xz.sig
@@ -19,7 +19,10 @@ Requires: milou-license = %{version}-%{release}
 Requires: milou-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kdeclarative-dev
+BuildRequires : kpackage-dev
 BuildRequires : krunner-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : qtbase-dev mesa-dev
 
@@ -68,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554216496
+export SOURCE_DATE_EPOCH=1555350129
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -76,7 +79,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1554216496
+export SOURCE_DATE_EPOCH=1555350129
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
 cp COPYING %{buildroot}/usr/share/package-licenses/milou/COPYING
