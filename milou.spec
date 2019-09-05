@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : milou
-Version  : 5.16.4
-Release  : 24
-URL      : https://download.kde.org/stable/plasma/5.16.4/milou-5.16.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.4/milou-5.16.4.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.4/milou-5.16.4.tar.xz.sig
+Version  : 5.16.5
+Release  : 25
+URL      : https://download.kde.org/stable/plasma/5.16.5/milou-5.16.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.5/milou-5.16.5.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.16.5/milou-5.16.5.tar.xz.sig
 Summary  : A dedicated search application built on top of Baloo
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -61,16 +61,17 @@ locales components for the milou package.
 
 
 %prep
-%setup -q -n milou-5.16.4
+%setup -q -n milou-5.16.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564510107
+export SOURCE_DATE_EPOCH=1567647620
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -84,7 +85,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1564510107
+export SOURCE_DATE_EPOCH=1567647620
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
 cp COPYING %{buildroot}/usr/share/package-licenses/milou/COPYING
@@ -115,7 +116,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmilou.so.5
-/usr/lib64/libmilou.so.5.16.4
+/usr/lib64/libmilou.so.5.16.5
 /usr/lib64/qt5/plugins/miloutextplugin.so
 /usr/lib64/qt5/qml/org/kde/milou/ResultDelegate.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListView.qml
