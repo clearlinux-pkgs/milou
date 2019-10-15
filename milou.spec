@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : milou
-Version  : 5.16.5
-Release  : 25
-URL      : https://download.kde.org/stable/plasma/5.16.5/milou-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/milou-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/milou-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 26
+URL      : https://download.kde.org/stable/plasma/5.17.0/milou-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/milou-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/milou-5.17.0.tar.xz.sig
 Summary  : A dedicated search application built on top of Baloo
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -61,14 +61,14 @@ locales components for the milou package.
 
 
 %prep
-%setup -q -n milou-5.16.5
+%setup -q -n milou-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567647620
+export SOURCE_DATE_EPOCH=1571162541
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -81,15 +81,15 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567647620
+export SOURCE_DATE_EPOCH=1571162541
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
-cp COPYING %{buildroot}/usr/share/package-licenses/milou/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/milou/COPYING.LIB
+cp %{_builddir}/milou-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/milou/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/milou-5.17.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/milou/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -116,7 +116,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmilou.so.5
-/usr/lib64/libmilou.so.5.16.5
+/usr/lib64/libmilou.so.5.17.0
 /usr/lib64/qt5/plugins/miloutextplugin.so
 /usr/lib64/qt5/qml/org/kde/milou/ResultDelegate.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListView.qml
@@ -128,8 +128,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/milou/COPYING
-/usr/share/package-licenses/milou/COPYING.LIB
+/usr/share/package-licenses/milou/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/milou/4cc77b90af91e615a64ae04893fdffa7939db84c
 
 %files locales -f milou.lang -f plasma_applet_org.kde.milou.lang
 %defattr(-,root,root,-)
