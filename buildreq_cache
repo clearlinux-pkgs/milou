@@ -1,6 +1,7 @@
-5.17.0
+5.17.1
 kdeclarative-dev
 kpackage-dev
 krunner-dev
 kwindowsystem-dev
 plasma-framework-dev
+util-linux
