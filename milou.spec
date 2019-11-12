@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : milou
-Version  : 5.17.2
-Release  : 28
-URL      : https://download.kde.org/stable/plasma/5.17.2/milou-5.17.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.2/milou-5.17.2.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.17.2/milou-5.17.2.tar.xz.sig
+Version  : 5.17.3
+Release  : 30
+URL      : https://download.kde.org/stable/plasma/5.17.3/milou-5.17.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.3/milou-5.17.3.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.3/milou-5.17.3.tar.xz.sig
 Summary  : A dedicated search application built on top of Baloo
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -22,7 +22,6 @@ BuildRequires : buildreq-kde
 BuildRequires : krunner-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -62,14 +61,14 @@ locales components for the milou package.
 
 
 %prep
-%setup -q -n milou-5.17.2
+%setup -q -n milou-5.17.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572441266
+export SOURCE_DATE_EPOCH=1573578249
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -86,11 +85,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1572441266
+export SOURCE_DATE_EPOCH=1573578249
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
-cp %{_builddir}/milou-5.17.2/COPYING %{buildroot}/usr/share/package-licenses/milou/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/milou-5.17.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/milou/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/milou-5.17.3/COPYING %{buildroot}/usr/share/package-licenses/milou/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/milou-5.17.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/milou/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -117,7 +116,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmilou.so.5
-/usr/lib64/libmilou.so.5.17.2
+/usr/lib64/libmilou.so.5.17.3
 /usr/lib64/qt5/plugins/miloutextplugin.so
 /usr/lib64/qt5/qml/org/kde/milou/ResultDelegate.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListView.qml
