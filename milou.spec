@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : milou
-Version  : 5.22.0
-Release  : 50
-URL      : https://download.kde.org/stable/plasma/5.22.0/milou-5.22.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.22.0/milou-5.22.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.22.0/milou-5.22.0.tar.xz.sig
+Version  : 5.22.1
+Release  : 51
+URL      : https://download.kde.org/stable/plasma/5.22.1/milou-5.22.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.1/milou-5.22.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.1/milou-5.22.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -63,15 +63,15 @@ locales components for the milou package.
 
 
 %prep
-%setup -q -n milou-5.22.0
-cd %{_builddir}/milou-5.22.0
+%setup -q -n milou-5.22.1
+cd %{_builddir}/milou-5.22.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623406606
+export SOURCE_DATE_EPOCH=1623812241
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -87,16 +87,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623406606
+export SOURCE_DATE_EPOCH=1623812241
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
-cp %{_builddir}/milou-5.22.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/milou-5.22.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/milou-5.22.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/milou/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/milou-5.22.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/milou/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/milou-5.22.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/milou/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/milou-5.22.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/milou/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/milou-5.22.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/milou/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/milou-5.22.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/milou-5.22.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/milou-5.22.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/milou/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/milou-5.22.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/milou/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/milou-5.22.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/milou/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/milou-5.22.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/milou/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/milou-5.22.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/milou/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -122,7 +122,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmilou.so.5
-/usr/lib64/libmilou.so.5.22.0
+/usr/lib64/libmilou.so.5.22.1
 /usr/lib64/qt5/plugins/miloutextplugin.so
 /usr/lib64/qt5/qml/org/kde/milou/ResultDelegate.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListView.qml
