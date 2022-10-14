@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : milou
-Version  : 5.25.5
-Release  : 71
-URL      : https://download.kde.org/stable/plasma/5.25.5/milou-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/milou-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/milou-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 72
+URL      : https://download.kde.org/stable/plasma/5.26.0/milou-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/milou-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/milou-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
+License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
 Requires: milou-data = %{version}-%{release}
 Requires: milou-lib = %{version}-%{release}
 Requires: milou-license = %{version}-%{release}
@@ -20,7 +20,6 @@ Requires: milou-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
-BuildRequires : ki18n-dev
 BuildRequires : krunner-dev
 BuildRequires : plasma-framework-dev
 
@@ -62,15 +61,15 @@ locales components for the milou package.
 
 
 %prep
-%setup -q -n milou-5.25.5
-cd %{_builddir}/milou-5.25.5
+%setup -q -n milou-5.26.0
+cd %{_builddir}/milou-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662503066
+export SOURCE_DATE_EPOCH=1665724692
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -86,9 +85,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662503066
+export SOURCE_DATE_EPOCH=1665724692
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
+cp %{_builddir}/milou-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/milou/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/milou-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/milou-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/milou-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/milou/2123756e0b1fc8243547235a33c0fcabfe3b9a51 || :
@@ -114,14 +114,13 @@ popd
 /usr/share/plasma/plasmoids/org.kde.milou/contents/ui/SearchField.qml
 /usr/share/plasma/plasmoids/org.kde.milou/contents/ui/globals.js
 /usr/share/plasma/plasmoids/org.kde.milou/contents/ui/main.qml
-/usr/share/plasma/plasmoids/org.kde.milou/contents/ui/previews/TextPreview.qml
 /usr/share/plasma/plasmoids/org.kde.milou/metadata.desktop
 /usr/share/plasma/plasmoids/org.kde.milou/metadata.json
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmilou.so.5
-/usr/lib64/libmilou.so.5.25.5
+/usr/lib64/libmilou.so.5.26.0
 /usr/lib64/qt5/qml/org/kde/milou/ResultDelegate.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListView.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListViewDelegate.qml
@@ -137,6 +136,7 @@ popd
 /usr/share/package-licenses/milou/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 /usr/share/package-licenses/milou/7d9831e05094ce723947d729c2a46a09d6e90275
 /usr/share/package-licenses/milou/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+/usr/share/package-licenses/milou/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/milou/e458941548e0864907e654fa2e192844ae90fc32
 
 %files locales -f milou.lang -f plasma_applet_org.kde.milou.lang
