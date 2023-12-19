@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : milou
-Version  : 5.27.9
-Release  : 90
-URL      : https://download.kde.org/stable/plasma/5.27.9/milou-5.27.9.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.9/milou-5.27.9.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.9/milou-5.27.9.tar.xz.sig
+Version  : 5.27.10
+Release  : 91
+URL      : https://download.kde.org/stable/plasma/5.27.10/milou-5.27.10.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.10/milou-5.27.10.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.10/milou-5.27.10.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -67,15 +67,15 @@ locales components for the milou package.
 
 
 %prep
-%setup -q -n milou-5.27.9
-cd %{_builddir}/milou-5.27.9
+%setup -q -n milou-5.27.10
+cd %{_builddir}/milou-5.27.10
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702033523
+export SOURCE_DATE_EPOCH=1702978400
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -134,7 +134,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1702033523
+export SOURCE_DATE_EPOCH=1702978400
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/milou
 cp %{_builddir}/milou-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/milou/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -172,10 +172,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmilou.so.5.27.9
+/V3/usr/lib64/libmilou.so.5.27.10
 /V3/usr/lib64/qt5/qml/org/kde/milou/libmilouqmlplugin.so
 /usr/lib64/libmilou.so.5
-/usr/lib64/libmilou.so.5.27.9
+/usr/lib64/libmilou.so.5.27.10
 /usr/lib64/qt5/qml/org/kde/milou/ResultDelegate.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListView.qml
 /usr/lib64/qt5/qml/org/kde/milou/ResultsListViewDelegate.qml
