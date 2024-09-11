@@ -9,7 +9,7 @@
 #
 Name     : milou
 Version  : 6.1.5
-Release  : 107
+Release  : 108
 URL      : https://download.kde.org/stable/plasma/6.1.5/milou-6.1.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.1.5/milou-6.1.5.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.1.5/milou-6.1.5.tar.xz.sig
